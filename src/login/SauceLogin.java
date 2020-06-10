@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SauceLogin {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Desktop\\Nahla_automation\\vjezba\\SauceDemo\\executable\\chromedriver.exe");
@@ -17,6 +17,7 @@ public class SauceLogin {
 	    // step 1 open sauce page
 	    
 	    driver.get("https://www.saucedemo.com/");
+	    Thread.sleep(3000);
 	    
 	    // step 2 open
 	    
@@ -43,6 +44,8 @@ public class SauceLogin {
 	   
 	   logButton.click();
 	   
+	   //close browser
+	   driver.quit();
 	   
 	}
 
