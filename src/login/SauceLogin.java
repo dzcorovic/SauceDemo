@@ -44,6 +44,19 @@ public class SauceLogin {
 	   
 	   logButton.click();
 	   
+	   // get current url
+	   
+	  String cUrl = driver.getCurrentUrl();
+	  
+	  System.out.println("This is current URL:"+ cUrl);
+	  
+	  if(cUrl.contentEquals("https://www.saucedemo.com")) {
+		  System.out.println("Url is correct. Test case:PASSED");
+	  }
+	  else {
+		  System.out.println("Url is incorrect. Test case: FAILED");
+	  } 
+	  
 	   //close browser
 	   driver.quit();
 	   
