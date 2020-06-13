@@ -1,9 +1,12 @@
 package login;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class SauceLoginVerTwo {
 
@@ -20,12 +23,14 @@ public class SauceLoginVerTwo {
 		System.out.println(login.getCurrentUrl());
 
 		// call method enterUsernameandPassword
+	
 		login.enterUsernameandPassword("standard_user", "secret_sauce");
-
+		
 		login.clickLoginButton();
 		
 		System.out.println(login.getCurrentUrl());
 		
+		Assert.assertEquals(login.getCurrentUrl(), "https://www.saucedemo.com/inventory.html", "You are not login");
 
 		// call method TearDown
 		// login.TearDown();
@@ -38,6 +43,7 @@ public class SauceLoginVerTwo {
 		System.setProperty("webdriver.chrome.driver", dir + "\\executable\\chromedriver.exe");
 
 		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // implicit wait -TestNG
 
 		// step 1 open sauce page
 
@@ -50,7 +56,8 @@ public class SauceLoginVerTwo {
 		driver.findElement(By.id("user-name")).sendKeys(user);
 
 		driver.findElement(By.id("password")).sendKeys(pass);
-
+		
+		
 	}
 
 	public void clickLoginButton() {
@@ -63,6 +70,7 @@ public class SauceLoginVerTwo {
 		return driver.getCurrentUrl();
 		
 	}
+	
 	
 	public void TearDown() {
 
