@@ -28,7 +28,7 @@ public class SauceLoginVerThree {
 				
 				Assert.assertEquals(login.getCurrentUrl(), "https://www.saucedemo.com/inventory.html", "You are not login");
                 
-				login.
+				
 				// call method TearDown
 				// login.TearDown();
 			}
@@ -68,11 +68,11 @@ public class SauceLoginVerThree {
 				
 			}
 			
-			public void getErrorMessage() {
+			//public void getErrorMessage() {
 				
-				return driver.findElement(By.cssSelector([data-test="error"])).
+				//return driver.findElement(By.cssSelector([data-test="error"]));
 				
-			}
+			//}
 			
 			public void TearDown() {
 
